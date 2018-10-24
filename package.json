@@ -1,0 +1,21 @@
+{
+  "name": "smartcheck-hellodockercon",
+  "version": "1.0.0",
+  "description": "A simple app to demo SmartCheck",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.424d57.com/hellodockercon/"
+  },
+  "keywords": [
+    "node",
+    "docker",
+    "dockerfile"
+  ],
+  "author": "jwestphal@jwitc.com",
+  "license": "ISC"
+}
