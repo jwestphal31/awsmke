@@ -1,0 +1,28 @@
+// load the http module
+var http = require('http');
+var https = require('https');
+var fs = require('fs');
+
+var file = fs.createWriteStream("logo.jpg");
+var request = https.get("https://424d57.s3.amazonaws.com/dockercon/logo.jpg?AWSAccessKeyId=AKIAJCIQGZPC5ZPQJIIQ&Expires=1528956205&Signature=cNOI9u29g5f3i1VDAZ%2BsPlSOrxw%3D", function(response) {
+  response.pipe(file);
+  console.log("getting file:");
+  fs.readdir("./", (err, files) => {
+    files.forEach(file => {
+      console.log(file);
+    });
+  })
+});
+
+
+
+// configure our HTTP server
+var server = http.createServer(function (request, response) {
+  //response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("<html><img src=\"logo.jpg\"><br>");
+  response.end("Hello DockerCon18</html>\n");
+});
+
+// listen on localhost:8080
+server.listen(8080);
+console.log("Server listening at http://127.0.0.1:8080/");
